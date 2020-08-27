@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+  <inputs>
+    <inputs name="results/*.vec"/>
+    <inputs name="results/*.sca"/>
+  </inputs>
+  <datasets>
+    <datasets name="Throughput">
+      <items xsi:type="scave:Add" filterPattern="file(/simulation/results/ShowProblem-#0.vec) AND attr:configname(ShowProblem) AND attr:runnumber(0) AND module(BasicNetwork.basic[0]) AND name(Throughput)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/simulation/results/ShowProblem-#0.vec) AND attr:configname(ShowProblem) AND attr:runnumber(0) AND module(BasicNetwork.basic[1]) AND name(Throughput)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/simulation/results/ShowProblem-#0.vec) AND attr:configname(ShowProblem) AND attr:runnumber(0) AND module(BasicNetwork.basic[2]) AND name(Throughput)" type="VECTOR"/>
+      <items xsi:type="scave:Compute" operation="aggregator">
+        <params name="function" value="sum"/>
+      </items>
+      <items xsi:type="scave:LineChart" name="Throughput" lineNameFormat="">
+        <properties name="Plot.Caching" value="false"/>
+        <properties name="Legend.Display" value="true"/>
+      </items>
+    </datasets>
+    <datasets name="InboxLength">
+      <items xsi:type="scave:Add" filterPattern="file(/simulation/results/ShowProblem-#0.vec) AND attr:configname(ShowProblem) AND attr:runnumber(0) AND module(BasicNetwork.basic[0]) AND name(InboxLength)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/simulation/results/ShowProblem-#0.vec) AND attr:configname(ShowProblem) AND attr:runnumber(0) AND module(BasicNetwork.basic[1]) AND name(InboxLength)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/simulation/results/ShowProblem-#0.vec) AND attr:configname(ShowProblem) AND attr:runnumber(0) AND module(BasicNetwork.basic[2]) AND name(InboxLength)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/simulation/results/ShowProblemV1-#0.vec) AND attr:configname(ShowProblemV1) AND attr:runnumber(0) AND module(V1Network.v1[0]) AND name(InboxLength)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/simulation/results/ShowProblemV1-#0.vec) AND attr:configname(ShowProblemV1) AND attr:runnumber(0) AND module(V1Network.v1[1]) AND name(InboxLength)" type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="file(/simulation/results/ShowProblemV1-#0.vec) AND attr:configname(ShowProblemV1) AND attr:runnumber(0) AND module(V1Network.v1[2]) AND name(InboxLength)" type="VECTOR"/>
+      <items xsi:type="scave:LineChart" name="InboxLength" lineNameFormat="">
+        <properties name="Plot.Caching" value="false"/>
+        <properties name="Legend.Display" value="true"/>
+      </items>
+    </datasets>
+  </datasets>
+  <chartSheets>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.4 //@datasets/@datasets.1/@items.6"/>
+  </chartSheets>
+</scave:Analysis>

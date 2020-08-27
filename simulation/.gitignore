@@ -1,0 +1,12 @@
+simulation
+
+out/
+
+.cproject
+.oppbuildspec
+.project
+.qtenvrc
+.cmdenv-log
+.settings/
+/.computed/
+/results/
