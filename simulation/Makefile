@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for simulation
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -I.
+#  opp_makemake -f --deep -O out -I. -lrocksdb
 #
 
 # Name of target to be created (-o option)
@@ -22,7 +22,7 @@ INCLUDE_PATH = -I.
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS =
+LIBS =  -lrocksdb
 
 # Output directory
 PROJECT_OUTPUT_DIR = out
@@ -33,25 +33,39 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 OBJS = \
     $O/basic.o \
     $O/constant_processing_rate_generator.o \
+    $O/db.o \
+    $O/dynamic_network.o \
+    $O/solidifier.o \
+    $O/tangle.o \
     $O/v1.o \
     $O/volatile_channel.o \
+    $O/create_message_event_m.o \
+    $O/defense_event_m.o \
     $O/generation_event_m.o \
     $O/health_measurement_event_m.o \
     $O/health_message_m.o \
     $O/pacing_event_m.o \
     $O/processing_event_m.o \
+    $O/request_message_m.o \
+    $O/request_message_event_m.o \
     $O/scheduling_event_m.o \
-    $O/sending_event_m.o
+    $O/sending_event_m.o \
+    $O/tangle_message_m.o
 
 # Message files
 MSGFILES = \
+    create_message_event.msg \
+    defense_event.msg \
     generation_event.msg \
     health_measurement_event.msg \
     health_message.msg \
     pacing_event.msg \
     processing_event.msg \
+    request_message.msg \
+    request_message_event.msg \
     scheduling_event.msg \
-    sending_event.msg
+    sending_event.msg \
+    tangle_message.msg
 
 # SM files
 SMFILES =
