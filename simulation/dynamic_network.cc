@@ -154,7 +154,7 @@ void DynamicNetwork::initialize() {
             }
 
             if(c >= 4) {
-                unconnectedNodes.erase(std::remove(unconnectedNodes.begin(), unconnectedNodes.end(), node), unconnectedNodes.end());
+                // unconnectedNodes.erase(std::remove(unconnectedNodes.begin(), unconnectedNodes.end(), node), unconnectedNodes.end());
             }
         }
         newlyConnected.clear();
