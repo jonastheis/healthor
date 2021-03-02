@@ -203,11 +203,11 @@ def sec2():
 
 def sec5_evaluation_microbenchmarks():
     # main example, inbox250
-    basic = plot.PlotBasic('Scenario1', 'Scenario1', 180, verbose_logs=True, run_simulation=True, plot_all=False)
+    basic = plot.PlotBasic('Scenario1', 'Scenario1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=False)
     basic.thesismain_micro_latency()
     basic.thesismain_micro_inbox_solidification_buffer()
     basic.thesismain_micro_throughput(annotation='Scenario1')
-    healthor = plot.PlotV1('Scenario1V1', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=False)
+    healthor = plot.PlotV1('Scenario1V1', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=False)
     healthor.thesismain_micro_inbox_solidification_buffer()
     healthor.thesismain_micro_latency()
     healthor.thesismain_micro_available_processing()
@@ -215,14 +215,14 @@ def sec5_evaluation_microbenchmarks():
 
     # Scenario2
     # main example, inbox250
-    basic = plot.PlotBasic('Scenario2', 'Scenario1', 180, verbose_logs=True, run_simulation=True, plot_all=False)
+    basic = plot.PlotBasic('Scenario2', 'Scenario1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=False)
     print_latency_percentile_node(basic, 'node[2]')
     print_latency_percentile_node(basic, 'node[6]')
     plot_latency_percentile(basic, '', plot=False)  # only print network latency percentile
     basic.thesismain_micro_latency()
     basic.thesismain_micro_inbox_solidification_buffer('Scenario2')
     basic.thesismain_micro_throughput('Scenario2')
-    healthor = plot.PlotV1('Scenario2V1', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=False)
+    healthor = plot.PlotV1('Scenario2V1', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=False)
     print_latency_percentile_node(healthor, 'node[2]')
     print_latency_percentile_node(healthor, 'node[6]')
     plot_latency_percentile(healthor, '', plot=False)  # only print network latency percentile
@@ -232,29 +232,29 @@ def sec5_evaluation_microbenchmarks():
     healthor.thesismain_micro_throughput()
 
     # inbox test series
-    plot.PlotBasic('Scenario2Inbox100', 'Scenario1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
-    plot.PlotV1('Scenario2V1Inbox100', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
-    plot.PlotBasic('Scenario2Inbox500', 'Scenario1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
-    plot.PlotV1('Scenario2V1Inbox500', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
-    plot.PlotBasic('Scenario2Inbox1000', 'Scenario1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
-    plot.PlotV1('Scenario2V1Inbox1000', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
-    plot.PlotBasic('Scenario2Inbox2000', 'Scenario1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
-    plot.PlotV1('Scenario2V1Inbox2000', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
+    plot.PlotBasic('Scenario2Inbox100', 'Scenario1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
+    plot.PlotV1('Scenario2V1Inbox100', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
+    plot.PlotBasic('Scenario2Inbox500', 'Scenario1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
+    plot.PlotV1('Scenario2V1Inbox500', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
+    plot.PlotBasic('Scenario2Inbox1000', 'Scenario1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
+    plot.PlotV1('Scenario2V1Inbox1000', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
+    plot.PlotBasic('Scenario2Inbox2000', 'Scenario1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
+    plot.PlotV1('Scenario2V1Inbox2000', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
 
     # outbox test series
-    healthor = plot.PlotV1('Scenario2V1Outbox100', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
+    healthor = plot.PlotV1('Scenario2V1Outbox100', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
     healthor.plot_buffers(to_node='node[4]')
     healthor.plot_buffers(to_node='node[6]')
-    healthor = plot.PlotV1('Scenario2V1', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
+    healthor = plot.PlotV1('Scenario2V1', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
     healthor.plot_buffers(to_node='node[4]')
     healthor.plot_buffers(to_node='node[6]')
-    healthor = plot.PlotV1('Scenario2V1Outbox500', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
+    healthor = plot.PlotV1('Scenario2V1Outbox500', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
     healthor.plot_buffers(to_node='node[4]')
     healthor.plot_buffers(to_node='node[6]')
-    healthor = plot.PlotV1('Scenario2V1Outbox1000', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
+    healthor = plot.PlotV1('Scenario2V1Outbox1000', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
     healthor.plot_buffers(to_node='node[4]')
     healthor.plot_buffers(to_node='node[6]')
-    healthor = plot.PlotV1('Scenario2V1Outbox2000', 'Scenario1V1', 180, verbose_logs=True, run_simulation=True, plot_all=True)
+    healthor = plot.PlotV1('Scenario2V1Outbox2000', 'Scenario1V1', 180, verbose_logs=True, run_simulation=args.run_simulation, plot_all=True)
     healthor.plot_buffers(to_node='node[4]')
     healthor.plot_buffers(to_node='node[6]')
 
@@ -317,29 +317,29 @@ def sec5_latency_percentiles(basic, ffa, healthor, healthor_ffa=None, legend=Tru
 
 
 def sec5_evaluation_macrobenchmarks():
-    plot.PlotBasic('MacroBasic100', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=True, plot_all=False)
-    plot.PlotBasic('MacroFFA100', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=True, plot_all=False)
-    plot.PlotV1('MacroHealthor100', 'DynamicNetworkV1', 180, verbose_logs=False, run_simulation=True, plot_all=False)
+    plot.PlotBasic('MacroBasic100', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
+    plot.PlotBasic('MacroFFA100', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
+    plot.PlotV1('MacroHealthor100', 'DynamicNetworkV1', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
 
-    plot.PlotBasic('MacroBasic500', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=True, plot_all=False)
-    plot.PlotBasic('MacroFFA500', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=True, plot_all=False)
-    plot.PlotV1('MacroHealthor500', 'DynamicNetworkV1', 180, verbose_logs=False, run_simulation=True, plot_all=False)
+    plot.PlotBasic('MacroBasic500', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
+    plot.PlotBasic('MacroFFA500', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
+    plot.PlotV1('MacroHealthor500', 'DynamicNetworkV1', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
 
-    plot.PlotBasic('MacroBasic1000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=True, plot_all=False)
-    plot.PlotBasic('MacroFFA1000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=True, plot_all=False)
-    plot.PlotV1('MacroHealthor1000', 'DynamicNetworkV1', 180, verbose_logs=False, run_simulation=True, plot_all=False)
+    plot.PlotBasic('MacroBasic1000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
+    plot.PlotBasic('MacroFFA1000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
+    plot.PlotV1('MacroHealthor1000', 'DynamicNetworkV1', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
 
-    basic = plot.PlotBasic('MacroBasic2000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=True, plot_all=False)
-    ffa = plot.PlotBasic('MacroFFA2000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=True, plot_all=False)
-    healthor = plot.PlotV1('MacroHealthor2000', 'DynamicNetworkV1', 180, verbose_logs=False, run_simulation=True, plot_all=False)
+    basic = plot.PlotBasic('MacroBasic2000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
+    ffa = plot.PlotBasic('MacroFFA2000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
+    healthor = plot.PlotV1('MacroHealthor2000', 'DynamicNetworkV1', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
     # generate plots for macrobenchmark section
     sec5_throughput(basic, ffa, healthor, legend=False)
     sec5_egalitarian_gradient(basic, ffa, healthor, legend=True)
     sec5_latency_percentiles(basic, ffa, healthor, legend=False)
 
-    plot.PlotBasic('MacroBasic5000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=True, plot_all=False)
-    plot.PlotBasic('MacroFFA5000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=True, plot_all=False)
-    plot.PlotV1('MacroHealthor5000', 'DynamicNetworkV1', 180, verbose_logs=False, run_simulation=True, plot_all=False)
+    plot.PlotBasic('MacroBasic5000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
+    plot.PlotBasic('MacroFFA5000', 'DynamicNetworkBasic', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
+    plot.PlotV1('MacroHealthor5000', 'DynamicNetworkV1', 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=False)
     return
 
     # this can be utilized once all the runs are done (e.g. to populate the results table)
@@ -466,15 +466,15 @@ def sec5_evaluation_macrobenchmarks():
 def attack_analysis():
     # exceed sending rate experiment
     for name in ['ExceedSendingRateAttack', 'ExceedSendingRateAttackDisabledDefense']:
-        h = plot.PlotV1(name, 'Scenario1V1', 60, verbose_logs=True, run_simulation=True, plot_all=False)
+        h = plot.PlotV1(name, 'Scenario1V1', 60, verbose_logs=True, run_simulation=args.run_simulation, plot_all=False)
         h.plot_allowed_receiving_rate(print_node='node[2]', malicious_node='node[7]', annotation=name)
 
     # sending nothing to neighbor
-    h = plot.PlotV1('SubceedSendingRateAttack', 'Scenario1V1', 60, verbose_logs=True, run_simulation=True, plot_all=False)
+    h = plot.PlotV1('SubceedSendingRateAttack', 'Scenario1V1', 60, verbose_logs=True, run_simulation=args.run_simulation, plot_all=False)
     h.plot_allowed_receiving_rate(print_node='node[2]', malicious_node='node[7]', annotation='SubceedSendingRateAttack')
 
     # low health
-    h = plot.PlotV1('LowHealthAttack', 'Scenario1V1', 60, verbose_logs=True, run_simulation=True, plot_all=False)
+    h = plot.PlotV1('LowHealthAttack', 'Scenario1V1', 60, verbose_logs=True, run_simulation=args.run_simulation, plot_all=False)
     h.plot_outboxes(print_node='node[3]', annotation='LowHealthAttack')
 
 
@@ -513,10 +513,10 @@ def centralization_score_sensitivity():
         print('Plotting %s...' % name)
         if name.startswith('MacroHealthor'):
             network = 'DynamicNetworkV1'
-            p = plot.PlotV1(name, network, 180, verbose_logs=False, run_simulation=True, plot_all=True)
+            p = plot.PlotV1(name, network, 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=True)
         else:
             network = 'DynamicNetworkBasic'
-            p = plot.PlotBasic(name, network, 180, verbose_logs=False, run_simulation=True, plot_all=True)
+            p = plot.PlotBasic(name, network, 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=True)
 
         # only print the necessary values for the table
         plot_throughput_mean(p, '', plot=False)
@@ -633,7 +633,7 @@ def plot_centralization_score_sensitivity():
 def utilization():
     # utilization N=100
     p = plot.PlotV1('MacroHealthorUtilizationN100T106', 'DynamicNetworkV1', 180, verbose_logs=False,
-                    run_simulation=True, plot_all=False)
+                    run_simulation=args.run_simulation, plot_all=False)
     # only print the necessary values for the table
     plot_throughput_mean(p, '', plot=False)
     plot_latency_percentile(p, '', plot=False)
@@ -657,10 +657,10 @@ def utilization():
         print('Plotting %s...' % name)
         if name.startswith('MacroHealthor'):
             network = 'DynamicNetworkV1'
-            p = plot.PlotV1(name, network, 180, verbose_logs=False, run_simulation=True, plot_all=True)
+            p = plot.PlotV1(name, network, 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=True)
         else:
             network = 'DynamicNetworkBasic'
-            p = plot.PlotBasic(name, network, 180, verbose_logs=False, run_simulation=True, plot_all=True)
+            p = plot.PlotBasic(name, network, 180, verbose_logs=False, run_simulation=args.run_simulation, plot_all=True)
 
         # only print the necessary values for the table
         plot_throughput_mean(p, '', plot=False)
@@ -671,8 +671,20 @@ def utilization():
         print('---------------------------------------')
 
 
+def str2bool(v):
+    if isinstance(v, bool):
+        return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Simulation running and plotting framework of Healthor. Please make sure that OMNeT++ is set up correctly as described here: https://github.com/jonastheis/healthor.')
+    parser.add_argument("--run-simulation", type=str2bool, nargs='?', const=True, default=False, required=True, help="whether to run the simulations or use data already generated in previous simulation runs to generate plots and results (true/false)")
     parser.add_argument("--microbenchmarks", help="run simulation series and plot results of microbenchmarks with 2 different 10 node networks", action='store_true')
     parser.add_argument("--macrobenchmarks", help="run simulation series and plot results  of macrobenchmarks", action='store_true')
     parser.add_argument("--attack-analysis", help="run simulations and plot results of attacks", action='store_true')
@@ -682,12 +694,10 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # exit and show help if no simulation is specified
-    if True not in args.__dict__.values():
+    if True not in [args.microbenchmarks, args.macrobenchmarks, args.attack_analysis, args.centralization_sensitivity_analysis, args.initial_experiment, args.processing_variability]:
         print("Please call with at least one simulation to run and plot.\n")
         parser.print_help()
         sys.exit(1)
-
-    print(args)
 
     if args.microbenchmarks:
         print("Running microbenchmarks...")
